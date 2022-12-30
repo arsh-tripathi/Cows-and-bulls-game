@@ -33,7 +33,6 @@ def check_length(i):
         global validity_length
         validity_length = True
     else:
-        print("Enter a four digit number only")
         length_error_label = tk.Label(
             text="Enter a four digit number only", fg="white", bg="black").pack()
 
@@ -49,7 +48,6 @@ def check_validity(i):
     if str(i).isnumeric():
         validity_numeric = True
     else:
-        print("Input must be a number")
         numeric_error_label = tk.Label(
             text="Enter a four digit number only", fg="white", bg="black").pack()
 
@@ -83,7 +81,6 @@ def check(n):
                     cows = cows + 1
             else:
                 ()
-    print("Bulls = " + str(bulls) + " and Cows = " + str(cows))
     row_label = tk.Label(text=str(n) + 30*" " +
                          str(bulls) + 30*" " + str(cows), fg="white", bg="black").pack()
     check_for_win(bulls)
@@ -98,17 +95,11 @@ def askinput(entered_number):
     if turns < 10:
         #entered_number = str(input("Please enter your number here: "))
         check_validity(entered_number)
-        if (validity_numeric == True) and (validity_length == True):
+        if validity_numeric and validity_length:
             check(entered_number)
             turns = turns + 1
     elif turns >= 10:
-        print("You ran out of turns")
-        print("The number was:" + str(num_int))
         lose_text = tk.Label(text="You ran out of turns",
                              fg="white", bg="black").pack()
         lose_test_2 = tk.Label(text="The number was: " +
                                str(num_int), fg="white", bg="black").pack()
-
-
-# Initialising the Game
-# askinput()
